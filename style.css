@@ -1,0 +1,401 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+@font-face {
+    font-family: 'Brut';
+    src: url("./assets/fonts/OTBrut-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: 'Brut-Italic';
+    src: url("./assets/fonts/OTBrut-Italic.otf") format("opentype");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Roboto Mono';
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.3rem;
+    font-size: 1rem;
+    background-color: rgb(13, 13, 13);
+    margin: 0;
+    overflow: hidden;
+}
+
+body.loading .bottom-overlay,
+body.loading .container,
+body.loading .map-container,
+body.loading .sub-pages,
+body.loading .about,
+body.loading .credits {
+    display: none;
+}
+
+button {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.4rem;
+    background-color: rgb(13, 13, 13);
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    transition: all 200ms ease;
+}
+
+button:hover {
+    color: rgb(41, 41, 41);
+    background-color: rgb(0, 255, 0);
+}
+
+h1, h3 {
+    font-family: 'Brut-Italic';
+    background-color: rgb(0, 255, 0);
+    padding: 3px;
+}
+
+.close-btn {
+    border: none;
+    padding: 0 8px;
+    font-family: monospace;
+    font-size: .8rem;
+    z-index: 100;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+
+.info {
+    display: flex;
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    pointer-events: all;
+    max-height: 0;
+    overflow-y: scroll;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+    width: 0;
+    transition: width 0.5s ease, max-height 0.5s ease, padding 0.5s ease;
+}
+
+.info h3,
+.welcome-message h3,
+.about h3,
+.credits h3 {
+    display: inline-block;
+    font-weight: normal;
+    /* background-color: yellow; */
+    /* padding: 10px; */
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.info h4 {
+    display: inline-block;
+    font-weight: normal;
+    margin-right: .5rem;
+    margin-bottom: .5rem;
+    font-size: .7rem;
+    padding: 5px;
+    background-color: #e4e4e4;
+}
+
+
+.info img {
+    margin: 0px 0px 10px 0px;
+}
+
+.info p,
+.welcome-message p {
+    font-size: .8rem;
+    line-height: 1.25rem;
+    margin: 0px 10px 0px 0px;
+}
+
+.loading-indicator {
+    text-transform: uppercase;
+    font-family: Brut-Italic;
+    font-size: 1.3rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(0, 255, 0);
+    color: rgb(13, 13, 13);
+    padding: 3px;
+    z-index: 9999;
+}
+
+.link {
+    stroke: white;
+}
+
+.node {
+    fill: white;
+    stroke: white;
+    cursor: pointer;
+}
+
+.label-text {
+    fill: white;
+}
+
+.info {
+    width: 400px;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+/* ————————— */
+
+.menu {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 0.7rem;
+    width: 300px;
+    gap: 10px;
+}
+
+.search-bar-container {
+    width: 100%;
+}
+
+.search-bar {
+    width: 100%;
+    background-color: rgb(13, 13, 13);
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+    border: 1px solid #e4e4e4;
+    padding: 5px 10px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.8rem;
+    color: #e4e4e4;
+    background-color: rgb(13, 13, 13);
+    border: none;
+    outline: none;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.search-bar input::placeholder {
+    color: #e4e4e4;
+    opacity: 0.8;
+}
+
+.items-container-wrapper {
+    width: 100%;
+    overflow-y: auto;
+}
+
+.items-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.menu-item,
+.sub-pages button {
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 0.7rem;
+    background-color: #e4e4e4;
+    color: rgb(13, 13, 13);
+}
+
+.menu-item.selected {
+    background-color: rgba(0, 255, 0);
+}
+
+.clear-btn,
+.view-map-btn {
+    font-size: 0.7rem;
+    background-color: rgb(0, 255, 0);
+    color: rgb(13, 13, 13);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 200ms;
+}
+
+.clear-btn:hover,
+.view-map-btn:hover {
+    background-color: #e4e4e4;
+    color: rgb(13, 13, 13);
+}
+
+.ui-autocomplete {
+    background-color: rgb(13, 13, 13);
+    font-family: 'Roboto Mono', monospace;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    font-size: 0.8rem;
+    color: #e4e4e4;
+}
+
+.ui-autocomplete .ui-menu-item {
+    cursor: pointer;
+    color: rgb(13, 13, 13);
+    background-color: #e4e4e4;
+}
+
+.ui-menu-item .ui-menu-item-wrapper.ui-state-active {
+    color: rgb(13, 13, 13);
+    background-color: #e4e4e4;
+    outline: none;
+    border: none;
+}
+
+.map-div {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background-color: rgb(13, 13, 13);
+    z-index: 1000;
+    display: none;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid white;
+}
+
+.map-div svg {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+/* ————— */
+
+.welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.welcome-message {
+    background-color: #e4e4e4;
+    color: black;
+    padding: 20px;
+    max-width: 500px;
+    position: relative;
+}
+
+.welcome-message h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.welcome-message button.close-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.welcome-message p {
+    width: 100%;
+}
+
+.welcome-message button.close-btn:hover {
+    color: black;
+    background-color: rgb(0, 255, 0);
+}
+
+/*  */
+
+.sub-pages {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    padding: 10px;
+    transition: all 200ms ease;
+    z-index: 99;
+    /* Lower z-index */
+}
+
+.sub-pages button:hover {
+    background-color: rgb(0, 255, 0);
+    color: black;
+}
+
+.about,
+.credits {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 400px;
+    background-color: #e4e4e4;
+    padding: 15px;
+    z-index: 100;
+}
+
+.about p,
+.credits p {
+    font-size: .8rem;
+    line-height: 1.25rem;
+    margin: 0px 10px 0px 0px;
+}
+
+.highlight {
+    font-family: 'Brut';
+    font-weight: bold;
+    letter-spacing: .04rem;
+    font-size: 0.9rem;
+    background-color: rgb(0, 255, 0);
+    padding: 3px;
+}
+
+.logos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    margin: 30px 0 0 0;
+}
+
+.logos img {
+    width: 90%;
+    filter: grayscale(100%) contrast(1) brightness(0);
+}
