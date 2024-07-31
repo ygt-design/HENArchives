@@ -8,7 +8,6 @@ Welcome to **HEN Archives**! We have created this space to connect the dots of a
 - [Overview](#overview)
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
 - [Customization](#customization)
 - [Contributing](#contributing)
 - [Acknowledgments](#acknowledgments)
@@ -42,8 +41,6 @@ To get started with HEN Archives, follow these steps:
    ```bash
    open index.html
    ```
-
-## Usage
 
 ### Menu
 

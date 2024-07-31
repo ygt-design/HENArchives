@@ -14,8 +14,8 @@ const showWelcomeMessage = () => {
   const closeButton = welcomeOverlay.querySelector(".close-btn");
   closeButton.addEventListener("click", () => {
     welcomeOverlay.style.display = "none";
-    document.body.style.overflow = "auto"; // Restore body interactions
+    document.body.style.overflow = "auto";
   });
 
-  document.body.style.overflow = "hidden"; // Make the background non-interactable
+  document.body.style.overflow = "hidden";
 };
