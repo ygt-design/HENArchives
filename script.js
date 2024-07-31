@@ -283,7 +283,7 @@ const createD3Visualization = (contents, container) => {
 
     const divContent = `
       <div style="display: flex; justify-content: space-between; align-items: center;">
-        <h3">${d.title}</h3>
+        <h3>${d.title}</h3>
         <button class="close-btn">x</button>
       </div>
       ${tagsElements.map((tag) => `<h4>${tag}</h4>`).join("")}
