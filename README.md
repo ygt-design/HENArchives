@@ -11,7 +11,6 @@ Welcome to **HEN Archives**!
 - [Usage](#usage)
 - [Customization](#customization)
 - [Contributing](#contributing)
-- [License](#license)
 - [Acknowledgments](#acknowledgments)
 
 ## Overview
@@ -129,10 +128,6 @@ We welcome contributions from the community! Please follow these steps to contri
    git push origin feature-branch
    ```
 6. **Open a pull request**
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
